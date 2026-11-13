@@ -1,4 +1,33 @@
 # brokeragentworkflow
-Here is a comprehensive, fully drafted blueprint based on our conversation. It blends your 3-month look-ahead strategy, the Q4 real estate planning timeline, daily operational workflows, and the core principles of The One-Minute Manager (adapted for real estate agents).You can copy and paste the text below directly into your document or workspace:The 3-Month Look-Ahead & Real Estate Management BlueprintSection 1: The Core PhilosophySuccess in real estate is driven by what you do 90 days in advance. This tool ensures that agents are never reactive. By planning business events, marketing campaigns, and client outreach three months ahead, the pipeline remains full, and daily execution becomes stress-free.Section 2: The 3-Month Look-Ahead Framework (Q4 Example)To stay ahead of the curve, major initiatives must be set up 90 days prior to execution. Below is how a typical Fourth Quarter (Q4) is structured to prepare for the upcoming year.TimelineFocus Area3-Month Advance Planning & SetupOctoberQ4 Kickoff & Next Year PrepFinalize and order client holiday gifts, schedule winter marketing photography, and draft the Q1 budgeting goals.NovemberGratitude & Client AppreciationLaunch Thanksgiving/Autumn marketing campaigns. Set up and pre-schedule all January educational webinars and market updates.DecemberYear-End Wrap & LaunchpadRun holiday events. Pre-stage all February spring-market preview mailers and confirm venues for Q1 networking events.Section 3: The "One-Minute Real Estate Manager" WorkflowIncorporating the principles of The One-Minute Manager, this framework keeps daily management incredibly efficient, focusing on clear goals, quick praise, and rapid course corrections.1. One-Minute Goals (Set Daily/Weekly)Agents write down their top 3 needle-moving goals for the day or week on a single page (taking less than 250 words to read).Real Estate Application: Example: "Make 10 past-client check-in calls, review the inspection report for 123 Main St., and schedule the 3-month look-ahead social media posts."Review these goals every morning to ensure daily actions align with the 3-month pipeline.2. One-Minute Praisings (Cultivate Momentum)The Broker or team leader catches agents doing something right immediately and spends 60 seconds praising the specific action.Real Estate Application: "I saw how beautifully you handled that tough negotiation yesterday. Your clear communication saved the deal, and it makes our whole office look fantastic. Keep it up!"3. One-Minute Re-Directs (Fast Course Correction)When a mistake happens, it is addressed immediately. Confirm the facts, spend 30 seconds explaining the impact of the mistake, and then spend 30 seconds reminding the agent of their high value to the team.Real Estate Application: "The lockbox code wasn't updated on the listing, which caused a showing delay today. It frustrates the buyers and hurts our professionalism. I know you pride yourself on seamless operations, so let’s make sure the checklist is hit next time. I believe in your attention to detail."Section 4: The Micro-to-Macro PlannerTo keep agents grounded while looking 3 months out, the system breaks down into manageable micro-steps:Yearly Plan: High-level production volume, GCI goals, and major community events.Quarterly Plan: The 3-Month Look-Ahead buffer (setting up next quarter's marketing today).Monthly Plan: Theme-based lead generation (e.g., Expireds, Geographic Farming, Sphere of Influence).Weekly Plan: Tracking active escrows, open house prep, and pipeline health.Daily Plan: The "One-Minute Goal" checklist—prospecting, follow-ups, and appointments.Section 5: Integration & Automated RemindersTo ensure this doesn't become another forgotten document, the blueprint connects directly to everyday tools like Google Workspace or Microsoft Outlook:Email Prompts: Automated Monday morning emails featuring the "One-Minute Goal" template for the week.Calendar Triggers: Hardcoded calendar alerts set 90 days prior to major dates (e.g., On October 1st, a Google Calendar notification triggers: "Action Required: Order Holiday Client Gifts Today").Daily System Checks: A 1-minute morning calendar block dedicated solely to reviewing the day's targets.
 
+A broker/agent daily workflow app for real estate teams: 3-month look-ahead planning, daily "One-Minute Manager" style goals, feedback (praise / re-directs), habits, gamification (XP, badges, leaderboards), and an AI coach. Built for Excel Legacy Realty Group as part of the RealEstateCRM project family.
 
+## Status
+
+**Active development.** Version 0.49.0 (per `VERSION.md`). Last commit 2026-11-12 (forward-merge of a Jules planner feature into main). Most recent work has been done by Google Jules with human review/merges by candlestixxx.
+
+## What's in here
+
+- **Backend** — FastAPI + SQLAlchemy + Celery/Redis. Routers for auth, admin, goals, planner, feedback, habits, social, analytics, AI coach, and webhooks (`routers/`). Models in `models.py`; background tasks in `tasks.py`.
+- **Frontend** — Vite + Tailwind app in `frontend/` (Capacitor `android/` and `ios/` shells present for a mobile build).
+- **Tests** — pytest suite covering app, auth, goals, social, badges, leaderboard, e2e, and more (`test_*.py`).
+- **Deploy** — `Dockerfile` and `docker-compose.yml` included; see `DEPLOY.md`.
+
+## What's working / what's not
+
+- The core workflow features (goals, planner, feedback, habits, gamification) are implemented across backend and frontend, per the 2026-09-28 "complete broker agent workflow implementation" commit and the changelog.
+- No production deployment is documented in this repo; there is no live URL, uptime, or user evidence in the repo itself. Treat as under development, not production-proven.
+- The repo root carries leftover merge-conflict artifacts (`*_ours.md` / `*_theirs.md` copies of changelog, handoff, models, roadmap, todo, version). These are stale duplicates and should be cleaned up, not read as current docs.
+
+## Relationship to RealEstateCRM
+
+This is a satellite component of [RealEstateCRM](https://github.com/RealEstateCRMLLC/RealEstateCRM) — the broker/agent workflow surface (planning, goals, feedback) that complements the main CRM. It is a separate service, not a folder inside the main CRM repo.
+
+## Running it
+
+See `DEPLOY.md` and `.env.example` for configuration. Standard flow: install Python deps from `requirements.txt`, run the FastAPI app (`main.py`), start the Celery worker, and serve the frontend from `frontend/`.
+
+## Links
+
+- Main CRM: https://github.com/RealEstateCRMLLC/RealEstateCRM
+- Org: https://github.com/RealEstateCRMLLC
